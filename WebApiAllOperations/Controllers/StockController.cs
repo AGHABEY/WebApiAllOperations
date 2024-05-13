@@ -16,7 +16,7 @@ public class StockController:ControllerBase
     {
         _context = context;
     }
-
+    
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
