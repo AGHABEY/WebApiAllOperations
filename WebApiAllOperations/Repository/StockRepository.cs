@@ -1,0 +1,69 @@
+using Microsoft.EntityFrameworkCore;
+using WebApiAllOperations.Data;
+using WebApiAllOperations.Dtos.Stock;
+using WebApiAllOperations.Interfaces;
+using WebApiAllOperations.Model;
+
+namespace WebApiAllOperations.Repository;
+
+public class StockRepository:IStockRepository
+{
+    private readonly ApplicationDbContext _context;
+
+    public StockRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+    
+    public Task<List<Stock>> GetAllAsync()
+    {
+        return _context.Stock.ToListAsync();
+    }
+
+    public async Task<Stock?> GetByIdAsync(int id)
+    {
+        return await _context.Stock.FindAsync(id);
+    }
+
+    public async Task<Stock> CreateAsync(Stock stockModel)
+    {
+        await _context.Stock.AddAsync(stockModel);
+        await _context.SaveChangesAsync();
+        return stockModel;
+    }
+
+    public async Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
+    {
+        var exsitingStock = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
+
+        if (exsitingStock==null)
+        {
+            return null;
+        }
+
+        exsitingStock.Symbol = stockDto.Symbol;
+        exsitingStock.CompanyName = stockDto.CompanyName;
+        exsitingStock.Purchase = stockDto.Purchase;
+        exsitingStock.LastDiv = stockDto.LastDiv;
+        exsitingStock.Industry = stockDto.Industry;
+        exsitingStock.MarketCap = stockDto.MarketCap;
+
+        await _context.SaveChangesAsync();
+
+        return exsitingStock;
+    }
+
+    public async Task<Stock?> DeleteAsync(int id)
+    {
+        var stockModel = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
+
+        if (stockModel==null)
+        {
+            return null;
+        }
+
+        _context.Stock.Remove(stockModel);
+        await _context.SaveChangesAsync();
+        return stockModel;
+    }
+}
