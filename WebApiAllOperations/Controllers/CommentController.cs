@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApiAllOperations.Dtos.Comment;
 using WebApiAllOperations.Interfaces;
 using WebApiAllOperations.Mappers;
 
@@ -8,9 +9,11 @@ namespace WebApiAllOperations.Controllers;
 public class CommentController:ControllerBase
 {
     private readonly ICommentRepository _commentRepository;
-    public CommentController(ICommentRepository commentRepository)
+    private readonly IStockRepository _stockRepository;
+    public CommentController(ICommentRepository commentRepository, IStockRepository stockRepository)
     {
         _commentRepository = commentRepository;
+        _stockRepository = stockRepository;
     }
     [HttpGet]
     public async Task<IActionResult> GetAll()
@@ -31,5 +34,31 @@ public class CommentController:ControllerBase
         }
 
         return Ok(comment);
+    }
+
+    [HttpPost("{stockId}")]
+    public async Task<IActionResult> Create([FromRoute] int stockId, CreateCommentDto commentDto)
+    {
+        if (!await _stockRepository.StockExists(stockId))
+        {
+            return BadRequest("Stock does not exist");
+        }
+
+        var commentModel = commentDto.ToCommentFromCreate(stockId);
+        await _commentRepository.CreateAsync(commentModel);
+        return CreatedAtAction(nameof(GetById), new { id = commentModel }, commentModel.ToCommentDto());
+    }
+
+    [HttpPut]
+    [Route("{id}")]
+    public async Task<IActionResult> Update([FromRoute] int id, UpdateCommentRequestDto updateDto)
+    {
+        var comment = await _commentRepository.UpdateAsync(id,updateDto.ToCommentUpdate());
+        if (comment==null)
+        {
+          return  NotFound("Comment not found");
+        }
+
+        return Ok(comment.ToCommentDto());
     }
 }
