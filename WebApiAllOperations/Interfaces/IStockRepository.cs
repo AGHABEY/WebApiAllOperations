@@ -1,11 +1,12 @@
 using WebApiAllOperations.Dtos.Stock;
+using WebApiAllOperations.Helpers;
 using WebApiAllOperations.Model;
 
 namespace WebApiAllOperations.Interfaces;
 
 public interface IStockRepository
 {
-    Task<List<Stock>> GetAllAsync();
+    Task<List<Stock>> GetAllAsync(QueryObject queryObject);
 
     Task<Stock?> GetByIdAsync(int id);
 

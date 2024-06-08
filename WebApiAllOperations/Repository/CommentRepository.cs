@@ -46,4 +46,20 @@ public class CommentRepository:ICommentRepository
 
         return existingComment;
     }
+
+    public async Task<Comment?> DeleteAsync(int id)
+    {
+        var commentModel = await _context.Comment.FirstOrDefaultAsync(x => x.Id == id);
+
+        if (commentModel==null)
+        {
+            return null;
+        }
+
+        _context.Comment.Remove(commentModel);
+        await _context.SaveChangesAsync();
+
+        return commentModel;
+
+    }
 }
