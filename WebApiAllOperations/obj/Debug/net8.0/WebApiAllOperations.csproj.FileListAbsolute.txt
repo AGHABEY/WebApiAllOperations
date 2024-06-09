@@ -135,3 +135,15 @@
 /Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 /Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/obj/Debug/net8.0/WebApiAllOperations.sourcelink.json
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/rafetaghabeyli/RiderProjects/WebApiAllOperations/WebApiAllOperations/bin/Debug/net8.0/Microsoft.Extensions.Options.dll

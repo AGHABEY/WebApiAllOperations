@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebApiAllOperations.Model;
 
 namespace WebApiAllOperations.Data;
 
-public class ApplicationDbContext:DbContext
+public class ApplicationDbContext:IdentityDbContext<AppUser>
 {
     public ApplicationDbContext(DbContextOptions dbContextOptions):base(dbContextOptions)
     {
