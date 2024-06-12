@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiAllOperations.Model;
 
+[Table("Stocks")]
 public class Stock
 {
     public int Id { get; set; }
@@ -15,5 +16,6 @@ public class Stock
     public string Industry { get; set; } = string.Empty;
     public long MarketCap { get; set; }
     public List<Comment> Comments { get; set; } = new List<Comment>();
+    public List<Portfolio> Portfolios { get; set; } = new List<Portfolio>();
 
 }

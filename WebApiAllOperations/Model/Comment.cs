@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WebApiAllOperations.Model;
 
+[Table("Comments")]
 public class Comment
 {
     public int Id { get; set; }
