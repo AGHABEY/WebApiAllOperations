@@ -9,6 +9,7 @@ public interface IStockRepository
     Task<List<Stock>> GetAllAsync(QueryObject queryObject);
 
     Task<Stock?> GetByIdAsync(int id);
+    Task<Stock?> GetBySymbolAsync(string symbol);
 
     Task<Stock> CreateAsync(Stock stockModel);
 
